@@ -1,6 +1,0 @@
-[
-{"id":"newroz","nameKu":"نەورۆز","nameEn":"Newroz","captionKu":"ئاگری نەورۆز لەسەر چیا","captionEn":"Torches on the mountain.","front":"img/newroz-front.jpg","back":"img/newroz-back.jpg","status":"available"},
-{"id":"peshmerga","nameKu":"پێشمەرگە","nameEn":"Peshmerga","captionKu":"لە چیاکاندا، لەنێو بەفردا","captionEn":"Walking the snowy mountain.","front":"img/peshmerga-front.jpg","back":"img/peshmerga-back.jpg","status":"available"},
-{"id":"kurdistan","nameKu":"کوردستان","nameEn":"Kurdistan","captionKu":"سەوزی چیاکانی نیشتمان","captionEn":"The green of our mountains.","front":"img/kurdistan-front.jpg","back":"img/kurdistan-back.jpg","status":"available"},
-{"id":"nomads","nameKu":"ژیانی کۆچەری","nameEn":"Nomad Life","captionKu":"ژیان لە سەر چیا بەرزەکان","captionEn":"Life in the high pastures.","front":"img/nomads-front.jpg","back":"img/nomads-back.jpg","status":"available"}
-]
