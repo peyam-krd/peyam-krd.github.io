@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ckb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Peyam پەیام: Kurdish postcards from Erbil. Write it. Send it. Keep it. کارتی پۆستی کوردی.">
+<meta name="theme-color" content="#141E2A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Peyam پەیام">
+<meta property="og:description" content="Kurdish postcards from Erbil. بینووسە. بینێرە. هەڵیبگرە.">
+<meta property="og:image" content="https://peyam-krd.github.io/img/newroz-front.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F2D3D'/%3E%3Cpath d='M8 46 L24 24 L33 36 L42 22 L56 46 Z' fill='%23F6F2EA'/%3E%3Ccircle cx='44' cy='16' r='5' fill='%23C4646F'/%3E%3C/svg%3E">
+<title>Peyam پەیام</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Lateef:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Phone-first layout: full-screen hero, 3D coverflow rail of cards, full-screen 3D viewer, sticky order bar. */
+:root{--navy:#1F2D3D;--ink:#141E2A;--cream:#F6F2EA;--hinar:#9B3A45;--hinar-l:#C4646F;--mist:#A7B7C4;--ember:#F6D9B8;--ku:'Lateef','Noto Naskh Arabic',serif;--disp:'Cormorant Garamond',Georgia,serif;--body:'Source Sans 3',system-ui,sans-serif;color-scheme:dark}
+[hidden]{display:none!important}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--body);overflow-x:hidden}
+.ku{font-family:var(--ku);font-weight:700;direction:rtl}
+a{color:inherit}
+.g{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+#em{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+section,footer{position:relative;z-index:2}
+.top{position:fixed;left:0;right:0;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) 12px max(18px,env(safe-area-inset-left,0px));background:linear-gradient(180deg,rgba(20,30,42,.92),rgba(20,30,42,0))}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}.logo svg{width:34px;height:34px}.logo b{font-family:var(--disp);font-style:italic;font-weight:600;font-size:26px}.logo i{font-family:var(--ku);font-style:normal;font-weight:700;font-size:26px}
+.pill{border:1.5px solid var(--cream);border-radius:99px;padding:8px 16px;font-size:12px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;text-decoration:none;display:flex;gap:8px;align-items:center}.pill .ku{font-size:19px;letter-spacing:0}
+/* hero */
+.h{min-height:100svh;padding-top:calc(86px + env(safe-area-inset-top,0px));padding-bottom:40px;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(110% 60% at 70% 90%,rgba(155,58,69,.5),rgba(20,30,42,0) 65%)}
+.hbg{position:absolute;left:0;right:0;top:44%;text-align:center;font-family:var(--ku);font-weight:700;font-size:110vw;line-height:1;color:rgba(246,242,234,.05);transform:translateY(-50%);white-space:nowrap;pointer-events:none;direction:rtl}
+.kick{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--mist);font-weight:600;margin:0 0 10px}
+.h h1{margin:0;font-family:var(--ku);font-weight:700;direction:rtl;text-align:right;font-size:clamp(60px,19vw,96px);line-height:1}
+.h h1 span{display:block}.h h1 .gr{background:linear-gradient(90deg,var(--ember),var(--hinar-l));-webkit-background-clip:text;background-clip:text;color:transparent}
+.en{font-family:var(--disp);font-style:italic;font-weight:500;font-size:26px;color:var(--ember);margin:10px 0 0}
+.lk{font-size:25px;line-height:1.55;font-weight:500;margin:12px 0 0;text-align:right}
+.hc{position:relative;flex:1;min-height:300px;perspective:900px;margin-top:6px;touch-action:pan-y}
+.hcard{position:absolute;left:50%;top:50%;width:78%;aspect-ratio:1748/1240;transform-style:preserve-3d;transition:transform .12s linear}
+.hcard img{width:100%;height:100%;display:block;box-shadow:1px 1px 0 #ECE6D8,2px 2px 0 #E4DDCB,3px 3px 0 #DAD2BE,0 30px 40px rgba(0,0,0,.55);animation:bob 6s ease-in-out infinite}
+.hcard:nth-child(2) img{animation-delay:-2s}.hcard:nth-child(3) img{animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.sw{text-align:center;color:var(--mist);font-size:11px;letter-spacing:.26em;text-transform:uppercase;margin:6px 0 0}
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid rgba(246,242,234,.15);padding:12px 0;background:rgba(20,30,42,.7)}
+.mq div{display:flex;gap:30px;width:max-content;animation:mq 32s linear infinite;font-family:var(--ku);font-weight:700;font-size:38px;direction:rtl;white-space:nowrap;align-items:center}.mq .d{color:var(--hinar-l);font-size:16px}
+@keyframes mq{to{transform:translateX(50%)}}
+/* manifesto */
+.m{background:var(--cream);color:var(--navy);padding-block:70px}
+.m .big{font-family:var(--ku);font-weight:700;direction:rtl;text-align:right;font-size:clamp(58px,17vw,92px);line-height:1.1;margin:0;color:var(--hinar)}
+.m .sub{font-family:var(--disp);font-style:italic;font-weight:500;font-size:32px;margin:12px 0 0}
+.wd{font-family:var(--ku);font-weight:700;direction:rtl;text-align:right;font-size:34px;line-height:1.6;margin:36px 0 0}.wd span{opacity:.2;transition:opacity .25s}.wd span.l{opacity:1}
+.m p.t{font-size:16px;line-height:1.6;color:#3B4856;margin:24px 0 0}
+.st{margin-top:40px;border-top:2px solid rgba(31,45,61,.2)}
+.s1{padding:22px 0;border-bottom:2px solid rgba(31,45,61,.2);display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:center}
+.s1 .ku{grid-column:2;grid-row:1/3;font-size:50px;color:var(--hinar);line-height:1}
+.s1 h3{margin:0;font-family:var(--disp);font-style:italic;font-weight:600;font-size:28px}.s1 p{margin:0;font-size:15px;color:#3B4856;line-height:1.45}
+/* cards rail */
+.c{padding-block:64px 30px}
+.c h2{font-family:var(--ku);font-weight:700;direction:rtl;font-size:clamp(60px,18vw,96px);margin:0;line-height:1.05;text-align:right}
+.c .hint{color:var(--mist);font-size:14px;line-height:1.5;margin:10px 0 0}.c .hint .ku{display:block;font-size:22px;color:var(--cream);font-weight:500}
+.rail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:0;padding:34px 8vw 20px;perspective:1000px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.rail::-webkit-scrollbar{display:none}
+.it{flex:0 0 84vw;max-width:420px;scroll-snap-align:center;padding:0 8px;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer;transform-style:preserve-3d}
+.it .cd{transform:rotateY(var(--ry,0deg)) scale(var(--sc,1));opacity:var(--op,1);transition:transform .08s linear;transform-style:preserve-3d}
+.it img{width:100%;aspect-ratio:1748/1240;display:block;object-fit:cover;box-shadow:1px 1px 0 #ECE6D8,2px 2px 0 #E4DDCB,3px 3px 0 #DAD2BE,0 24px 36px rgba(0,0,0,.55)}
+.it .nm{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;gap:10px}.it .nm .ku{font-size:40px;line-height:1.1}.it .nm i{font-family:var(--disp);font-weight:600;font-size:22px;color:var(--ember)}
+.it .cp{color:var(--mist);font-size:14px;margin:4px 0 0}
+.tap{display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.2em;border:1px solid var(--ember);color:var(--ember);padding:7px 12px;border-radius:99px;font-weight:700}
+.dots{display:flex;gap:8px;justify-content:center}.dots i{width:7px;height:7px;border-radius:50%;background:rgba(246,242,234,.3);transition:.2s}.dots i.on{background:var(--ember);width:22px;border-radius:5px}
+/* order */
+.o{background:var(--hinar);padding-block:60px 120px}
+.o h2{font-family:var(--ku);font-weight:700;direction:rtl;font-size:clamp(52px,15vw,84px);line-height:1.1;margin:0;text-align:right}
+.o .os{border-top:2px solid rgba(246,242,234,.5);padding:14px 0;margin-top:14px}.o .os .ku{font-size:30px;margin:0;text-align:right}.o .os p{margin:2px 0 0;font-size:14px;opacity:.9}
+.cta{display:flex;justify-content:center;align-items:center;gap:12px;padding:17px 22px;border-radius:99px;background:var(--cream);color:var(--navy);font-weight:700;letter-spacing:.06em;text-decoration:none;font-size:15px;border:0;width:100%;margin-top:28px;font-family:var(--body)}
+.cta .ku{font-size:22px}.o .cta{background:var(--navy);color:var(--cream)}
+footer{padding-block:50px 120px;text-align:center;overflow:hidden}footer .hg{font-family:var(--ku);font-weight:700;font-size:70vw;line-height:1;color:rgba(246,242,234,.08);margin:0;direction:rtl}footer p{color:var(--mist);margin:6px 0;font-size:14px}footer .ku{font-size:30px;color:var(--cream)}
+/* sticky bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px max(14px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:linear-gradient(0deg,rgba(20,30,42,.95),rgba(20,30,42,0));transform:translateY(120%);transition:transform .4s}
+.bar.on{transform:none}.bar .cta{margin:0;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+/* viewer */
+#v{position:fixed;inset:0;z-index:90;background:radial-gradient(90% 60% at 50% 60%,rgba(155,58,69,.55),rgba(20,30,42,.97) 70%);display:grid;grid-template-rows:auto 1fr auto;padding:max(14px,env(safe-area-inset-top,0px)) max(14px,env(safe-area-inset-right,0px)) max(14px,env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));opacity:0;transition:opacity .3s}#v.show{opacity:1}
+.vt{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.vt .ku{font-size:54px;line-height:1.05;margin:0}.vt .n{font-family:var(--disp);font-style:italic;color:var(--ember);font-size:20px;margin:0}
+.x{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--cream);background:none;color:var(--cream);font-size:20px;flex:none}
+.stg{perspective:1400px;display:grid;place-items:center;touch-action:none;overflow:hidden;min-height:0}
+.ob{position:relative;width:min(92vw,calc((100svh - 260px)*1.409));aspect-ratio:1748/1240;transform-style:preserve-3d}
+.fa{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}.fa img{width:100%;height:100%;display:block;pointer-events:none}.fa.f{transform:translateZ(5px)}.fa.b{transform:rotateY(180deg) translateZ(5px)}
+.sl{position:absolute;inset:0;background:#E9E2D2;transform:translateZ(var(--z))}
+.shn{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,0) calc(var(--sp,50%) - 18%),rgba(255,255,255,.38) var(--sp,50%),rgba(255,255,255,0) calc(var(--sp,50%) + 18%));mix-blend-mode:soft-light;pointer-events:none}
+.vb{display:flex;gap:8px;flex-wrap:wrap}.vb button{flex:1;border:1.5px solid rgba(246,242,234,.6);background:none;color:var(--cream);padding:12px 10px;border-radius:99px;font:700 12px var(--body);letter-spacing:.12em;text-transform:uppercase}.vb button.on{background:var(--cream);color:var(--navy)}
+.vh{text-align:center;color:var(--mist);font-size:12px;letter-spacing:.1em;margin:8px 0 0}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--cream);color:var(--navy);padding:12px 18px;border-radius:14px;z-index:120;opacity:0;transition:.3s;width:max-content;max-width:88vw;text-align:center;font-weight:600;font-size:14px}.toast.show{opacity:1;transform:translate(-50%,0)}.toast .ku{display:block;font-size:20px}
+.pre{opacity:0;transform:translateY(30px)}[data-r]{transition:opacity .8s,transform .8s}
+@media(min-width:700px){body{max-width:520px;margin:0 auto;box-shadow:0 0 120px rgba(0,0,0,.6)}.top,.bar{max-width:520px;margin:0 auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute"><defs><filter id="w" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1000" height="1000"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/></filter><symbol id="m"viewBox="0 0 200 200">
+<g filter="url(#w)" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="5" stroke-dasharray="536 30" transform="rotate(-105 100 100)"></circle>
+<circle cx="93" cy="92" r="17" fill="currentColor"></circle>
+<path d="M36 146 L70 108 L92 128 L116 100 L164 146 Z" fill="currentColor" stroke="currentColor" stroke-width="5" opacity="0.5"></path>
+<path d="M44 152 L80 112 L100 132 L128 108 L156 152 Z" fill="currentColor" stroke="currentColor" stroke-width="5"></path>
+<path d="M50 164 q12 -7 24 0 t24 0 t24 0 t24 0" fill="none" stroke="currentColor" stroke-width="4.5"></path>
+<path d="M62 176 q10 -6 20 0 t20 0 t20 0 t20 0" fill="none" stroke="currentColor" stroke-width="4.5"></path>
+</g></symbol></defs></svg>
+<canvas id="em"></canvas>
+<div class="top"><a class="logo" href="#top"><svg viewBox="0 0 200 200"><use href="#m"/></svg><b>Peyam</b><i>پەیام</i></a><a class="pill" href="#order">Order <span class="ku">داوا بکە</span></a></div>
+
+<section class="h g" id="top">
+ <div class="hbg">پەیام</div>
+ <p class="kick">Kurdish postcards · Erbil · کارتی پۆستی کوردی</p>
+ <h1><span>بینووسە.</span><span>بینێرە.</span><span class="gr">هەڵیبگرە.</span></h1>
+ <p class="en">Write it. Send it. Keep it.</p>
+ <p class="lk ku">کارتی پۆستی کوردی، بۆ ئەو پەیامانەی هەمیشە دەتەوێت بینێریت.</p>
+ <div class="hc" id="hc"></div>
+ <p class="sw">Swipe up · بەرەو سەرەوە</p>
+</section>
+
+<div class="mq" aria-hidden="true"><div id="mqi"></div></div>
+
+<section class="m g">
+ <p class="kick" style="color:var(--hinar)">Our point · بیرۆکەکەمان</p>
+ <h2 class="big">نامە دەمێنێتەوە</h2>
+ <p class="sub">Texts get lost. Cards get kept.</p>
+ <p class="wd" id="wd">لە ڕۆژگارێکدا کە هەموو شتێک خێرا تێدەپەڕێت، ئێمە دەمانەوێت شتێک بخەینە دەستت کە بمێنێتەوە: وێنەیەکی کوردستان، و شوێنێک بۆ ئەوەی بە دەستی خۆت بنووسیت.</p>
+ <p class="t">Somewhere in a drawer is a message from someone you love. That is what Peyam makes: a picture of home on the front, and room on the back for your own handwriting.</p>
+ <div class="st">
+  <div class="s1" data-r><h3>Write</h3><span class="ku">بینووسە</span><p>لە پشتەوەی کارتەکە، بۆ کەسێک کە خۆشت دەوێت.</p></div>
+  <div class="s1" data-r><h3>Send</h3><span class="ku">بینێرە</span><p>بە پۆست، یان بە دەست.</p></div>
+  <div class="s1" data-r><h3>Keep</h3><span class="ku">هەڵیبگرە</span><p>لەسەر دیوار، لە دەفتەر، لە ماڵەوە.</p></div>
+ </div>
+</section>
+
+<section class="c" id="cards">
+ <div class="g"><p class="kick">The first print · یەکەم چاپ</p><h2>کارتەکانمان</h2><p class="hint">Swipe the cards. Tap one to hold it in 3D.<span class="ku">بیانخولێنەرەوە، کلیک بکە، و بە ٣D ببینە.</span></p></div>
+ <div class="rail" id="rail"></div>
+ <div class="dots" id="dots"></div>
+</section>
+
+<section class="o g" id="order">
+ <p class="kick" style="color:var(--ember)">How to order · چۆن داوا بکەیت</p>
+ <h2>داوای کارتەکەت بکە</h2>
+ <p class="en" style="color:var(--cream)">Order in one message, on Instagram.</p>
+ <div class="os" data-r><p class="ku">١. کارتێک هەڵبژێرە</p><p>Pick the card you love.</p></div>
+ <div class="os" data-r><p class="ku">٢. نامەیەکمان بۆ بنێرە</p><p>We copy the message for you. Paste it in our Instagram DM.</p></div>
+ <div class="os" data-r><p class="ku">٣. ئێمە بۆتی دەنێرین</p><p>We confirm the details and send it.</p></div>
+ <a class="cta" data-dm href="https://ig.me/m/peyam.krd" target="_blank" rel="noopener">Message @peyam.krd <span class="ku">نامە بنێرە</span></a>
+</section>
+
+<footer class="g"><p class="hg" aria-hidden="true">پەیام</p><p class="ku">لە هەولێرەوە بۆ هەموو کوردستان</p><p>From Erbil, to all of Kurdistan.</p><p><a href="https://instagram.com/peyam.krd" target="_blank" rel="noopener">@peyam.krd</a></p></footer>
+
+<div class="bar" id="bar"><a class="cta" data-dm href="https://ig.me/m/peyam.krd" target="_blank" rel="noopener">Order on Instagram <span class="ku">داوا بکە</span></a></div>
+
+<div id="v" hidden><div class="vt"><div><p class="ku" id="vk"></p><p class="n" id="vn"></p></div><button class="x" id="vx" aria-label="Close">✕</button></div><div class="stg" id="stg"><div class="ob" id="ob"></div></div><div><div class="vb"><button id="bf" class="on">Front · پێشەوە</button><button id="bb">Back · پشتەوە</button><button id="bs">Spin · بخولێنە</button></div><a class="cta" id="vo" style="margin-top:10px" href="https://ig.me/m/peyam.krd" target="_blank" rel="noopener">Order this card <span class="ku">داوای بکە</span></a><p class="vh">Drag to turn it around</p></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;let CARDS=[];
+const WD='پەیام,نامە,نیشتمان,ماڵ,دڵ,چیا,ئاگر,دەف,کوردستان,هەولێر,خۆشەویستی,بیرەوەری,نەورۆز,ڕێگا,دەرگا'.split(',');
+$('#mqi').innerHTML=[...WD,...WD,...WD,...WD].map(w=>`<span>${w}</span><span class="d">◆</span>`).join('');
+const wE=$('#wd');wE.innerHTML=wE.textContent.split(' ').map(w=>`<span>${w}</span>`).join(' ');const wS=[...wE.children];
+function words(){const r=wE.getBoundingClientRect(),vh=innerHeight,p=Math.min(1,Math.max(0,(vh*.9-r.top)/(r.height+vh*.2))),n=Math.round(p*wS.length);wS.forEach((s,i)=>s.classList.toggle('l',i<n))}
+/* embers */
+const cv=$('#em'),cx=cv.getContext('2d');let P=[];function rs(){const d=Math.min(2,devicePixelRatio||1);cv.width=innerWidth*d;cv.height=innerHeight*d;cx.setTransform(d,0,0,d,0,0)}rs();addEventListener('resize',rs);
+function sp(x,y,b){P.push({x,y,vx:(Math.random()-.5)*(b?3:.6),vy:-(Math.random()*(b?2.4:1.1)+.3),r:Math.random()*2.2+.7,l:1,d:Math.random()*.01+.005,h:Math.random()>.5})}
+addEventListener('touchmove',e=>{const t=e.touches[0];if(t&&!reduce)sp(t.clientX,t.clientY,true)},{passive:true});
+(function lp(){cx.clearRect(0,0,innerWidth,innerHeight);if(!reduce&&Math.random()<.45)sp(Math.random()*innerWidth,innerHeight+8);P=P.filter(p=>p.l>0);if(P.length>140)P.splice(0,P.length-140);for(const p of P){p.x+=p.vx+Math.sin(p.y/40)*.3;p.y+=p.vy;p.l-=p.d;cx.globalAlpha=Math.max(0,p.l)*.85;cx.fillStyle=p.h?'#F6D9B8':'#C4646F';cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()}requestAnimationFrame(lp)})();
+/* toast/order */
+let tt;function toast(h){const t=$('#toast');t.innerHTML=h;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),4200)}
+async function cp(s){try{await navigator.clipboard.writeText(s);return true}catch(e){return false}}
+function msg(c){return c?`سڵاو پەیام! دەمەوێت کارتی «${c.nameKu}» (${c.nameEn}) داوا بکەم.\nHi Peyam! I'd like to order the "${c.nameEn}" card.`:`سڵاو پەیام! دەمەوێت کارتێک داوا بکەم.\nHi Peyam! I'd like to order a card.`}
+async function order(c){const ok=await cp(msg(c));toast(ok?`Message copied. Paste it in the DM.<span class="ku">نامەکە کۆپی کرا، لە دایرێکت پەیستی بکە</span>`:`Tell us which card you want in our Instagram DM.<span class="ku">لە ئینستاگرام پێمان بڵێ کام کارتت دەوێت</span>`)}
+document.querySelectorAll('[data-dm]').forEach(a=>a.addEventListener('click',()=>{if(!a.id)order(null)}));
+/* data */
+fetch('cards.json').then(r=>r.json()).then(d=>{CARDS=d;build()}).catch(()=>{$('#rail').innerHTML='<p class="g">Please refresh.</p>'});
+function build(){
+ const pos=[[-6,-4,-8],[8,10,7],[-2,16,-3]];
+ $('#hc').innerHTML=CARDS.slice(0,3).map((c,i)=>`<div class="hcard" data-x="${pos[i][0]}" data-y="${pos[i][1]}" data-z="${pos[i][2]}" data-d="${(i+1)*.5}"><img src="${c.front}" alt="${c.nameEn} postcard"></div>`).join('');
+ $('#rail').innerHTML=CARDS.map((c,i)=>`<button class="it" data-i="${i}" aria-label="Open ${c.nameEn}"><div class="cd"><img src="${c.front}" alt="${c.nameEn} postcard" loading="lazy"><div class="nm"><span class="ku">${c.nameKu}</span><i>${c.nameEn}</i></div><p class="cp">${c.captionKu} · ${c.captionEn}</p><span class="tap">TAP · 3D ٣٦٠°</span></div></button>`).join('');
+ $('#dots').innerHTML=CARDS.map(()=>'<i></i>').join('');
+ document.querySelectorAll('.it').forEach(b=>b.addEventListener('click',()=>openV(+b.dataset.i)));
+ rail();reveal();
+}
+/* hero tilt */
+let tx=0,ty=0,ax=0,ay=0;const hc=$('#hc');
+hc.addEventListener('touchmove',e=>{const t=e.touches[0],r=hc.getBoundingClientRect();tx=(t.clientX-r.left)/r.width-.5;ty=(t.clientY-r.top)/r.height-.5},{passive:true});
+hc.addEventListener('touchend',()=>{tx=ty=0});
+addEventListener('deviceorientation',e=>{if(e.gamma==null)return;tx=Math.max(-.5,Math.min(.5,e.gamma/60));ty=Math.max(-.5,Math.min(.5,(e.beta-45)/80))});
+(function ht(){ax+=(tx-ax)*.1;ay+=(ty-ay)*.1;const t=performance.now()/2000;document.querySelectorAll('.hcard').forEach(f=>{const d=+f.dataset.d;f.style.transform=`translate(-50%,-50%) translate(${+f.dataset.x*3+ax*50*d+Math.sin(t+d)*4}px,${+f.dataset.y*3+ay*30*d}px) rotateY(${ax*34*d}deg) rotateX(${-ay*24*d}deg) rotateZ(${f.dataset.z}deg)`});requestAnimationFrame(ht)})();
+/* coverflow rail */
+function rail(){const R=$('#rail');const its=[...R.children];const dots=[...$('#dots').children];
+ function u(){const c=R.scrollLeft+R.clientWidth/2;let best=0,bd=1e9;its.forEach((it,i)=>{const m=it.offsetLeft+it.offsetWidth/2,o=(m-c)/it.offsetWidth,a=Math.min(1.5,Math.abs(o));it.style.setProperty('--ry',(-o*38)+'deg');it.style.setProperty('--sc',1-a*.14);it.style.setProperty('--op',1-a*.35);if(Math.abs(o)<bd){bd=Math.abs(o);best=i}});dots.forEach((d,i)=>d.classList.toggle('on',i===best))}
+ R.addEventListener('scroll',u,{passive:true});u();setTimeout(u,300)}
+/* scroll */
+const bar=$('#bar'),hero=$('#top');
+function sc(){bar.classList.toggle('on',scrollY>hero.offsetHeight*.7);words()}addEventListener('scroll',sc,{passive:true});sc();
+function reveal(){const els=[...document.querySelectorAll('[data-r]')];const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}}),{threshold:.1});els.forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el)}})}
+/* 3D viewer */
+const V=$('#v'),O=$('#ob'),S=$('#stg');let ci=0,ry=-20,rx=8,vy=0,vx=0,dr=false,lx=0,ly=0,spin=false,idle=true,tg=null;
+for(let i=-5;i<=5;i++){const s=document.createElement('div');s.className='sl';s.style.setProperty('--z',i*.9+'px');O.appendChild(s)}
+function openV(i){const c=CARDS[i];ci=i;$('#vk').textContent=c.nameKu;$('#vk').className='ku';$('#vn').textContent=c.nameEn+' · '+c.captionEn;O.querySelectorAll('.fa').forEach(f=>f.remove());
+ O.insertAdjacentHTML('beforeend',`<div class="fa f"><img src="${c.front}" alt=""><div class="shn"></div></div><div class="fa b"><img src="${c.back}" alt=""><div class="shn"></div></div>`);
+ ry=-30;rx=10;tg=0;spin=false;idle=true;V.hidden=false;requestAnimationFrame(()=>V.classList.add('show'));document.body.style.overflow='hidden';$('#vo').onclick=()=>order(c)}
+function closeV(){V.classList.remove('show');setTimeout(()=>{V.hidden=true},300);document.body.style.overflow=''}
+$('#vx').onclick=closeV;
+const norm=()=>{ry=((ry%360)+360)%360;if(ry>180)ry-=360};
+$('#bf').onclick=()=>{norm();tg=0;spin=false;idle=false};$('#bb').onclick=()=>{norm();tg=180;spin=false;idle=false};$('#bs').onclick=()=>{spin=!spin;tg=null;idle=false};
+S.addEventListener('pointerdown',e=>{dr=true;lx=e.clientX;ly=e.clientY;vx=vy=0;tg=null;idle=false;S.setPointerCapture(e.pointerId)});
+S.addEventListener('pointermove',e=>{if(!dr)return;const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;vy=dx*.5;vx=-dy*.3;ry+=vy;rx=Math.max(-50,Math.min(50,rx+vx))});
+S.addEventListener('pointerup',()=>dr=false);S.addEventListener('pointercancel',()=>dr=false);
+(function vl(){if(!V.hidden){if(!dr){if(tg!==null){ry+=(tg-ry)*.12;rx+=(0-rx)*.1}else if(spin){ry+=1.4}else if(idle){ry=-20+Math.sin(performance.now()/1200)*18;rx=8+Math.sin(performance.now()/1700)*4}else{ry+=vy;rx=Math.max(-50,Math.min(50,rx+vx));vy*=.94;vx*=.9}}
+ O.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;const a=((ry%360)+360)%360,fr=a<90||a>270;O.querySelectorAll('.shn').forEach(s=>s.style.setProperty('--sp',(50+Math.sin(ry*Math.PI/180)*60)+'%'));$('#bf').classList.toggle('on',fr);$('#bb').classList.toggle('on',!fr)}requestAnimationFrame(vl)})();
+</script>
+
+</body>
+</html>
